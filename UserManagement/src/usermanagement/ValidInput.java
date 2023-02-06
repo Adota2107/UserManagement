@@ -63,7 +63,7 @@ public class ValidInput {
     }
 
     public String checkUsernameInFile(String str){
-        File acc = new File("C:\\Users\\admin\\Documents\\NetBeansProjects\\UserManagement\\src\\usermanagement\\user.dat");
+        File acc = new File("C:\\Users\\admin\\WorkSpace\\Java_Project\\UserManagement\\UserManagement\\src\\usermanagement\\user.dat");
         try{
             FileReader fr = new FileReader(acc);
             BufferedReader br = new BufferedReader(fr);
@@ -95,7 +95,7 @@ public class ValidInput {
  
     //String type return null because it only use to compare with string in function loginSystem in Manage.java
     public String checkPasswordInFile(String str){
-        File acc = new File("C:\\Users\\admin\\Documents\\NetBeansProjects\\UserManagement\\src\\usermanagement\\user.dat");
+        File acc = new File("C:\\Users\\admin\\WorkSpace\\Java_Project\\UserManagement\\UserManagement\\src\\usermanagement\\user.dat");
         try{
             FileReader fr = new FileReader(acc);
             BufferedReader br = new BufferedReader(fr);
@@ -127,7 +127,10 @@ public class ValidInput {
     
     //Check when username already exits
     public boolean checkUsernameExits(String str){
-        File acc = new File("C:\\Users\\admin\\Documents\\NetBeansProjects\\UserManagement\\src\\usermanagement\\user.dat");
+        File acc = new File("C:\\Users\\admin\\WorkSpace\\Java_Project\\UserManagement\\UserManagement\\src\\usermanagement\\user.dat");
+        if (!acc.exists()) {
+            return false;
+        }
         try{
             FileReader fr = new FileReader(acc);
             BufferedReader br = new BufferedReader(fr);
