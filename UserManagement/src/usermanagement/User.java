@@ -19,13 +19,13 @@ public class User extends ValidInput{
         System.out.println("3. Exit");
     }
     
-    public String input(){
-        System.out.print("> Choice: ");
+    public int input(){
+        System.out.print("> Choose: ");
         while (true) {    
             String choice = checkInput();
             //regEx: Allow enter between 1 and 3
             if (choice.matches("[1-3]")) {
-                return choice;
+                return Integer.parseInt(choice);
             }
             System.out.print("Please enter number between 1 and 3: ");
         } 

@@ -15,9 +15,13 @@ import java.io.IOException;
 public class Manage extends ValidInput{
     public void createNewAccount(){
         String username = checkUsername();
-        String password = checkPassword();   
+        String password = checkPassword();  
+        if (checkUsernameExits(username)) {
+            System.out.println("This username already exits");
+            return;
+        }
         try {
-            File acc = new File("C:\\Users\\admin\\WorkSpace\\Java_Project\\UserManagement\\UserManagement\\src\\usermanagement\\user.dat");
+            File acc = new File("C:\\Users\\admin\\Documents\\NetBeansProjects\\UserManagement\\src\\usermanagement\\user.dat");
             if (!acc.exists()) {
                 acc.createNewFile();
                 System.out.println("Create successfully"); 

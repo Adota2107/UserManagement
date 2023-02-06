@@ -17,20 +17,22 @@ public class Main {
     public static void main(String[] args) {
         User user = new User();
         Manage manage = new Manage(); 
+        do {
         //Step 1: Create menu 
-        user.menu();
-        //Step 2: User choice and check 
-        String choice = user.input();
+        user.menu();          
+        //Step 2: User choice and check      
+        int choice = user.input();    
         switch(choice){
-            case "1": //Step 3: Create a new account and add it into file named 'user.dat'  
+            case 1: //Step 3: Create a new account  
                 manage.createNewAccount();
                 break;
-            case "2": //Step 4: Let user log into Login System by find it in file 'user.dat' 
+            case 2: //Step 4: Let user log into Login System by find it in file 'user.dat' 
                 manage.loginSystem();
                 break; 
-            case "3":
+            case 3:
                 System.out.println("Goodbye");
                 break;
-        }     
+        }            
+        } while (true);
     }    
 }
