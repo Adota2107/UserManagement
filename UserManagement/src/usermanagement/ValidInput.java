@@ -37,7 +37,7 @@ public class ValidInput {
         //Loop are used to prevent user from enter wrong regEx
         while (true) {            
             String input = checkInput();
-            //regEx: Allow enter 5 character without blank
+            //regEx \\S{5}\\S*: Allow enter 5 character without blank
             //Check if input match with regEx
             if (input.matches("^\\S{5}\\S*$")) {
                 return input;
@@ -52,7 +52,7 @@ public class ValidInput {
         //Loop are used to prevent user from enter wrong regEx
         while (true) {            
             String input = checkInput();
-            //regEx: Allow enter 6 character without blank
+            //regEx \\S{6}\\S*: Allow enter 6 character without blank
             //Check if input match regEx
             if (input.matches("^\\S{6}\\S*$")) {
                 return input;
