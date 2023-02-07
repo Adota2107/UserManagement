@@ -31,7 +31,7 @@ public class Main {
                 break; 
             case 3:
                 System.out.println("Goodbye");
-                break;
+                return;
         }            
         } while (true);
     }    
