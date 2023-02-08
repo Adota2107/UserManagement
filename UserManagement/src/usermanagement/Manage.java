@@ -21,7 +21,9 @@ public class Manage extends ValidInput{
         }
         String password = checkPassword(); 
         try {
-            File acc = new File("C:\\Users\\admin\\WorkSpace\\Java_Project\\UserManagement\\UserManagement\\src\\usermanagement\\user.dat");
+            String currentDir = System.getProperty("user.dir");
+            File acc = new File(currentDir + "/user.dat");
+            System.out.println(currentDir);
             if (!acc.exists()) {
                 acc.createNewFile();
                 System.out.println("Create successfully"); 
