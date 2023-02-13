@@ -20,17 +20,17 @@ public class Main {
         do {
         //Step 1: Create menu 
         user.menu();          
-        //Step 2: User choice and check      
+        //Step 2: User choice     
         int choice = user.input();    
         switch(choice){
-            case 1: //Step 3: Create a new account  
+            case 1: //Create a new account  
                 manage.createNewAccount();
                 break;
-            case 2: //Step 4: Let user log into Login System by find it in file 'user.dat' 
+            case 2: //Let user log into Login System by find it in file 'user.dat' 
                 manage.loginSystem();
                 break; 
-            case 3:
-                System.out.println("Goodbye");
+            case 3: //Exit
+                user.exit();
                 return;
         }            
         } while (true);

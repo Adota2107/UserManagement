@@ -24,7 +24,7 @@ public class ValidInput {
         while (true) {                   
             String input = sc.nextLine().trim(); 
             if (input.isEmpty()) {
-                System.out.println("Can't leave blank!!!");
+                System.err.println("Can't leave blank!!!");
                 System.out.print("Please enter again: ");
             }else{
                 return input;
@@ -42,7 +42,7 @@ public class ValidInput {
             if (input.matches("^\\S{5}\\S*$")) {
                 return input;
             }
-            System.out.println("You must enter least at 5 character, and no space!");
+            System.err.println("You must enter least at 5 character, and no space!");
             System.out.print("Enter Username: ");
         }  
     }
@@ -57,77 +57,88 @@ public class ValidInput {
             if (input.matches("^\\S{6}\\S*$")) {
                 return input;
             }
-            System.out.println("You must enter least at 6 character, and no space!");
+            System.err.println("You must enter least at 6 character, and no space!");
             System.out.print("Enter Password: ");
         }
     }
 
     public String checkUsernameInFile(String str){
-        File acc = new File("C:\\Users\\admin\\WorkSpace\\Java_Project\\UserManagement\\UserManagement\\src\\usermanagement\\user.dat");
-        try{
-            FileReader fr = new FileReader(acc);
-            BufferedReader br = new BufferedReader(fr);
-            String line = "";
-            while (true) {
-                line = br.readLine();
-                if(line == null) {
-                    break;
-                }      
-                String[] accList = line.split(";");
-                //Loop for put username and password to string array until it null
-                for (int i = 0; i < accList.length; i++) {
-                    if (str.equals(accList[i])) {
-                        return accList[i];
-                    }                        
-                }
-            }    
-        }
-        catch (FileNotFoundException fne){
-            System.out.println("Something went wrong");
-            System.out.println("Detail: " + fne);
-        }
-        catch (IOException ioe){
-            System.out.println("Something went wrong");
-            System.out.println("Detail: " + ioe);
+        String curentDir = System.getProperty("user.dir");
+        File acc = new File(curentDir + "/user.dat");
+        if (!acc.exists()) {
+            System.err.println("The file has not been created, please create the file");
+        } else {
+            try{
+                FileReader fr = new FileReader(acc);
+                BufferedReader br = new BufferedReader(fr);
+                String line = "";
+                while (true) {
+                    line = br.readLine();
+                    if(line == null) {
+                        break;
+                    }      
+                    String[] accList = line.split(";");
+                    //Loop for put username and password to string array until it null
+                    for (int i = 0; i < accList.length; i++) {
+                        if (str.equals(accList[i])) {
+                            return accList[i];
+                        }                        
+                    }
+                }    
+            }
+            catch (FileNotFoundException fne){
+                System.err.println("Something went wrong");
+                System.out.println("Detail: " + fne);
+            }
+            catch (IOException ioe){
+                System.err.println("Something went wrong");
+                System.out.println("Detail: " + ioe);
+            }          
         }
         return null;
     }
  
     //String type return null because it only use to compare with string in function loginSystem in Manage.java
     public String checkPasswordInFile(String str){
-        File acc = new File("C:\\Users\\admin\\WorkSpace\\Java_Project\\UserManagement\\UserManagement\\src\\usermanagement\\user.dat");
-        try{
-            FileReader fr = new FileReader(acc);
-            BufferedReader br = new BufferedReader(fr);
-            String line = "";
-            while (true) {
-                line = br.readLine();
-                if(line == null) {
-                    break;
-                }      
-                String[] accList = line.split(";");
-                //Loop for put username and password to string array until it null
-                for (int i = 0; i < accList.length; i++) {
-                    if (str.equals(accList[i])) {
-                        return accList[i+1];
-                    }                        
-                }
-            }    
-        }
-        catch (FileNotFoundException fne){
-            System.out.println("Something went wrong");
-            System.out.println("Detail: " + fne);
-        }
-        catch (IOException ioe){
-            System.out.println("Something went wrong");
-            System.out.println("Detail: " + ioe);
+        String curentDir = System.getProperty("user.dir");
+        File acc = new File(curentDir + "/user.dat");
+        if (!acc.exists()) {
+            System.err.println("The file has not been created, please create the file");
+        } else {
+            try{
+                FileReader fr = new FileReader(acc);
+                BufferedReader br = new BufferedReader(fr);
+                String line = "";
+                while (true) {
+                    line = br.readLine();
+                    if(line == null) {
+                        break;
+                    }      
+                    String[] accList = line.split(";");
+                    //Loop for put username and password to string array until it null
+                    for (int i = 0; i < accList.length; i++) {
+                        if (str.equals(accList[i])) {
+                            return accList[i+1];
+                        }                        
+                    }
+                }    
+            }
+            catch (FileNotFoundException fne){
+                System.err.println("Something went wrong");
+                System.out.println("Detail: " + fne);
+            }
+            catch (IOException ioe){
+                System.err.println("Something went wrong");
+                System.out.println("Detail: " + ioe);
+            }
         }
         return null;
     }
     
     //Check when username already exits
     public boolean checkUsernameExits(String str){
-        File acc = new File("C:\\Users\\admin\\WorkSpace\\Java_Project\\UserManagement\\UserManagement\\src\\usermanagement\\user.dat");
+        String curentDir = System.getProperty("user.dir");
+        File acc = new File(curentDir + "/user.dat");
         if (!acc.exists()) {
             return false;
         }
@@ -150,7 +161,7 @@ public class ValidInput {
             }    
         }
         catch (IOException ioe){
-            System.out.println("Something went wrong");
+            System.err.println("Something went wrong");
             System.out.println("Detail: " + ioe);
         }
         return false;

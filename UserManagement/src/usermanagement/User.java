@@ -27,7 +27,11 @@ public class User extends ValidInput{
             if (choice.matches("[1-3]")) {
                 return Integer.parseInt(choice);
             }
-            System.out.print("Please enter number between 1 and 3: ");
+            System.err.print("Please enter number between 1 and 3: ");
         } 
+    }
+    
+    public void exit(){
+        System.out.println("Goodbye!!!");
     }
 }

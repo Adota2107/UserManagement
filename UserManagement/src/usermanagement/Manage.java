@@ -16,27 +16,26 @@ public class Manage extends ValidInput{
     public void createNewAccount(){
         String username = checkUsername();   
         while (checkUsernameExits(username)) {
-            System.out.println("This username already exits");
+            System.err.println("This username already exits");
             username = checkUsername();
         }
         String password = checkPassword(); 
         try {
-            String currentDir = System.getProperty("user.dir");
-            File acc = new File(currentDir + "/user.dat");
-            System.out.println(currentDir);
+            String curentDir = System.getProperty("user.dir");
+            File acc = new File(curentDir + "/user.dat");
             if (!acc.exists()) {
                 acc.createNewFile();
-                System.out.println("Create successfully"); 
-            } else {
-                System.out.println("File already exits");
-                System.out.println("Your new account will be add into file");
+                System.out.println("File created successfully");
+            }else{
+                System.err.println("File already exits");
+                System.err.println("Your new account will be add into file");
             }
             //Use this constructor because it can't be overridden
             FileWriter writer = new FileWriter(acc, true);
             writer.write(username + ";" + password + "\n");
             writer.close();  
         } catch (IOException ioe) {
-            System.out.println("Something went wrong");
+            System.err.println("Something went wrong");
             System.out.println("Detail: " + ioe);
         } 
     }
@@ -50,10 +49,10 @@ public class Manage extends ValidInput{
             if (password.equals(checkPasswordInFile(username))) {
                 System.out.println("Login successfully");
             }else{
-                System.out.println("Invalid username or password");
+                System.err.println("Invalid username or password");
             }
         }else{
-            System.out.println("Invalid username or password");
+            System.err.println("Invalid username or password");
         }
     }
 }
