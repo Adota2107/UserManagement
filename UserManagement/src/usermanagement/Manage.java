@@ -41,6 +41,7 @@ public class Manage extends ValidInput{
     }
         
     public void loginSystem(){
+        if (!checkFileExits()) {
         String username = checkUsername();
         String password = checkPassword();
         //Compare username you entered with username in file
@@ -53,6 +54,7 @@ public class Manage extends ValidInput{
             }
         }else{
             System.err.println("Invalid username or password");
+        }        
         }
     }
 }
