@@ -65,10 +65,6 @@ public class ValidInput {
     public String checkUsernameInFile(String str){
         String curentDir = System.getProperty("user.dir");
         File acc = new File(curentDir + "/user.dat");
-//        if (!acc.exists()) {
-//            System.err.println("The file has not been created, please create the file");
-//            return null;
-//        } else {
             try{
                 FileReader fr = new FileReader(acc);
                 BufferedReader br = new BufferedReader(fr);
@@ -95,7 +91,6 @@ public class ValidInput {
                 System.err.println("Something went wrong");
                 System.out.println("Detail: " + ioe);
             }          
-//        }
         return null;
     }
  
@@ -103,10 +98,6 @@ public class ValidInput {
     public String checkPasswordInFile(String str){
         String curentDir = System.getProperty("user.dir");
         File acc = new File(curentDir + "/user.dat");
-//        if (!acc.exists()) {
-//            System.err.println("The file has not been created, please create the file");
-//            return null;
-//        } else {
             try{
                 FileReader fr = new FileReader(acc);
                 BufferedReader br = new BufferedReader(fr);
@@ -133,7 +124,6 @@ public class ValidInput {
                 System.err.println("Something went wrong");
                 System.out.println("Detail: " + ioe);
             }
-//        }
         return null;
     }
     
@@ -141,9 +131,6 @@ public class ValidInput {
     public boolean checkUsernameExits(String str){
         String curentDir = System.getProperty("user.dir");
         File acc = new File(curentDir + "/user.dat");
-//        if (!acc.exists()) {
-//            return false;
-//        }
         try{
             FileReader fr = new FileReader(acc);
             BufferedReader br = new BufferedReader(fr);

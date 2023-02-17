@@ -12,14 +12,14 @@ package usermanagement;
 
 public class User extends ValidInput{
     
-    public void menu(){
+    public void getMenu(){
         System.out.println("====== USER MANAGEMENT SYSTEM ======");
         System.out.println("1. Create a new account");
         System.out.println("2. Login system");
         System.out.println("3. Exit");
     }
     
-    public int input(){
+    public int inputChoice(){
         System.out.print("> Choose: ");
         while (true) {    
             String choice = checkInput();
@@ -29,9 +29,5 @@ public class User extends ValidInput{
             }
             System.err.print("Please enter number between 1 and 3: ");
         } 
-    }
-    
-    public void exit(){
-        System.out.println("Goodbye!!!");
     }
 }

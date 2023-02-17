@@ -48,7 +48,7 @@ public class Manage extends ValidInput{
         if (username.equals(checkUsernameInFile(username))) {
             //Compare password you just entered with the password in the 'user.dat' file
             if (password.equals(checkPasswordInFile(username))) {
-                System.out.println("Login successfully");
+                System.err.println("Login successfully");
             }else{
                 System.err.println("Invalid username or password");
             }
